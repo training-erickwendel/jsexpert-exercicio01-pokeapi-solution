@@ -5,11 +5,11 @@ const { expect } = require('chai');
 
 const {
   teamRepositoryMock,
-  BASE_URL,
+  urls,
   mocks,
 } = require('../mocks/teamRepository.mock');
 
-describe('TeamRepository Suite Tests', () => {
+describe.only('TeamRepository Suite Tests', () => {
   let teamRepository = {};
 
   before(() => {
@@ -18,7 +18,7 @@ describe('TeamRepository Suite Tests', () => {
 
   it('should call the specified url when makeRequest is called', async () => {
     const expected = mocks.pokemons;
-    const result = await teamRepository.makeRequest(BASE_URL);
+    const result = await teamRepository.makeRequest(urls.base);
 
     expect(result).to.be.equal(expected);
   });
@@ -30,5 +30,14 @@ describe('TeamRepository Suite Tests', () => {
     expect(result).to.be.equal(expected);
   });
 
-  // TODO: implement findPokemon test
+  it('should return an specific pokemon when findPokemon is called', async () => {
+    const expected = {
+      name: mocks.pokemon1.name,
+      moves: mocks.pokemon1.moves.map(move => move.move.name),
+    };
+
+    const result = await teamRepository.findPokemon(urls.pokemon1);
+
+    expect(JSON.stringify(result)).to.be.equal(JSON.stringify(expected));
+  });
 });
