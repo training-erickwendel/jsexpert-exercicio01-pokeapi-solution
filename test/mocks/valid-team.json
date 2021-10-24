@@ -1,0 +1,14 @@
+[
+  {
+    "name":"charizard",
+    "moves":["mega-punch","fire-punch","thunder-punch"]
+  },
+  {
+    "name":"blastoise",
+    "moves":["mega-punch","ice-punch","mega-kick"]
+  },
+  {
+    "name":"metapod",
+    "moves":["string-shot","harden","iron-defense"]
+  }
+]

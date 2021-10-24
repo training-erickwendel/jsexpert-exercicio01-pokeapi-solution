@@ -13,6 +13,7 @@ const mocks = {
   pokemon1: require('./valid-pokemon-1.json'),
   pokemon2: require('./valid-pokemon-2.json'),
   pokemon3: require('./valid-pokemon-3.json'),
+  team: require('./valid-team.json'),
 };
 
 const teamRepositoryMock = new TeamRepository();
