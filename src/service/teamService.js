@@ -6,13 +6,14 @@ class TeamService {
   }
 
   getRandomItemFromArray(list) {
-    // FIXME: unmock
-    return list[0];
+    const listLength = list.length;
+    return list[Math.floor(Math.random() * listLength)];
   }
 
   getMultipleRandomItemsFromArray(list, quantity) {
-    // FIXME: unmock
-    return list.splice(0, quantity);
+    return Array(quantity)
+      .fill(0)
+      .map(() => this.getRandomItemFromArray(list));
   }
 
   async getTeam(teamSize = 3) {
