@@ -6,10 +6,12 @@ class TeamService {
   }
 
   getRandomItemFromArray(list) {
+    // FIXME: unmock
     return list[0];
   }
 
   getMultipleRandomItemsFromArray(list, quantity) {
+    // FIXME: unmock
     return list.splice(0, quantity);
   }
 
@@ -19,6 +21,7 @@ class TeamService {
 
     console.log({ teamRaw });
 
+    // FIXME: unmock
     const team = [
       { name: 'x', moves: ['a', 'b', 'c'] },
       { name: 'y', moves: ['a', 'b', 'c'] },

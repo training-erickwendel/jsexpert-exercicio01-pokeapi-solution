@@ -4,6 +4,7 @@ const API_BASE_URL = 'https://pokeapi.co/api/v2';
 
 class TeamRepository {
   async makeRequest(url) {
+    // FIXME: unmock
     console.info({ url, API_BASE_URL });
     return {};
   }
