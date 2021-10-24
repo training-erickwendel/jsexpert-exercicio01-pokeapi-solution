@@ -47,6 +47,16 @@ describe('TeamService Suite Tests', () => {
 
   it('should return a full team with 3 random pokemons, each one with 3 moves', async () => {
     const expected = [];
+
+    sandbox
+      .stub(teamService, teamService.getMultipleRandomItemsFromArray.name)
+      .onFirstCall()
+      .returns([
+        { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' },
+        { name: 'wartortle', url: 'https://pokeapi.co/api/v2/pokemon/8/' },
+        { name: 'raticate', url: 'https://pokeapi.co/api/v2/pokemon/20/' },
+      ]);
+
     const team = await teamService.getTeam();
 
     expect(true).to.be.true;
