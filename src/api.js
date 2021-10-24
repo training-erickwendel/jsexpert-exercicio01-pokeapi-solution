@@ -2,12 +2,23 @@ const http = require('http');
 
 const routes = {
   '/team:get': async (request, response) => {
-    const team = [
-      { name: 'x', moves: ['a', 'b', 'c'] },
-      { name: 'y', moves: ['a', 'b', 'c'] },
-      { name: 'z', moves: ['a', 'b', 'c'] },
-    ];
-    response.write(JSON.stringify(team));
+    try {
+      const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon');
+      const pokemons = data.results;
+
+      const myPokemons = await Promise.all(
+        pokemons.splice(0, 3).map(async pokemon => {
+          const {
+            data: { moves, name },
+          } = await axios.get(pokemon.url);
+          return { moves: moves.map(move => move.move.name), name };
+        })
+      );
+
+      response.write(JSON.stringify(myPokemons));
+    } catch (e) {
+      response.write(JSON.stringify(e));
+    }
 
     return response.end();
   },
