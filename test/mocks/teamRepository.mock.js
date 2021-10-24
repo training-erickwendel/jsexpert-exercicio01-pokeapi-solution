@@ -1,10 +1,12 @@
 const TeamRepository = require('../../src/repository/teamRepository');
 const sinon = require('sinon');
 
-const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
-const BASE_POKEMON_1 = 'https://pokeapi.co/api/v2/pokemon/6/';
-const BASE_POKEMON_2 = 'https://pokeapi.co/api/v2/pokemon/9/';
-const BASE_POKEMON_3 = 'https://pokeapi.co/api/v2/pokemon/11/';
+const urls = {
+  base: 'https://pokeapi.co/api/v2/pokemon',
+  pokemon1: 'https://pokeapi.co/api/v2/pokemon/6/',
+  pokemon2: 'https://pokeapi.co/api/v2/pokemon/9/',
+  pokemon3: 'https://pokeapi.co/api/v2/pokemon/11/',
+};
 
 const mocks = {
   pokemons: require('./valid-pokemons.json'),
@@ -20,13 +22,13 @@ const stub = sinon.stub(
   teamRepositoryMock.makeRequest.name
 );
 
-stub.withArgs(BASE_URL).resolves(mocks.pokemons);
-stub.withArgs(BASE_POKEMON_1).resolves(mocks.pokemon1);
-stub.withArgs(BASE_POKEMON_2).resolves(mocks.pokemon2);
-stub.withArgs(BASE_POKEMON_3).resolves(mocks.pokemon3);
+stub.withArgs(urls.base).resolves(mocks.pokemons);
+stub.withArgs(urls.pokemon1).resolves(mocks.pokemon1);
+stub.withArgs(urls.pokemon2).resolves(mocks.pokemon2);
+stub.withArgs(urls.pokemon3).resolves(mocks.pokemon3);
 
 module.exports = {
   teamRepositoryMock,
-  BASE_URL,
+  urls,
   mocks,
 };
