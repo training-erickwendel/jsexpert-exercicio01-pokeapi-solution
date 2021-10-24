@@ -24,8 +24,16 @@ class TeamService {
       teamRaw.map(async pokemonRaw => {
         const { url } = pokemonRaw;
         const pokemon = await this.teamRepository.findPokemon(url);
+        /*
+          TODO: What if we did it this way? How could we test it? 
+          const moves = this.getMultipleRandomItemsFromArray(pokemon.moves, 3);
+        */
+        const moves = pokemon.moves.splice(0, 3);
 
-        console.log({ pokemon });
+        return {
+          name: pokemon.name,
+          moves: moves,
+        };
       })
     );
 
