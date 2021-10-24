@@ -29,4 +29,6 @@ describe('TeamRepository Suite Tests', () => {
 
     expect(result).to.be.equal(expected);
   });
+
+  // TODO: implement findPokemon test
 });
