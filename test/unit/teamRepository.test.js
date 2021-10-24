@@ -9,7 +9,7 @@ const {
   mocks,
 } = require('../mocks/teamRepository.mock');
 
-describe.only('TeamRepository Suite Tests', () => {
+describe.skip('TeamRepository Suite Tests', () => {
   let teamRepository = {};
 
   before(() => {

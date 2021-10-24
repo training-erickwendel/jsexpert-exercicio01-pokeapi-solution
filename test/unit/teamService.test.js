@@ -3,7 +3,7 @@ const { describe, it, before } = require('mocha');
 const { expect } = require('chai');
 const sinon = require('sinon');
 
-const { teamRepositoryMock } = require('../mocks/teamRepository.mock');
+const { teamRepositoryMock, mocks } = require('../mocks/teamRepository.mock');
 
 const TeamService = require('../../src/service/teamService');
 
@@ -50,7 +50,7 @@ describe('TeamService Suite Tests', () => {
   });
 
   it('should return a full team with 3 random pokemons, each one with 3 moves', async () => {
-    // const expected = [];
+    const expected = mocks.team;
     const pokemons = await teamRepository.listPokemons();
 
     const teamRawMocked = [pokemons[5], pokemons[8], pokemons[10]];
@@ -62,6 +62,6 @@ describe('TeamService Suite Tests', () => {
 
     const team = await teamService.getTeam();
 
-    expect(true).to.be.true;
+    expect(JSON.stringify(team)).to.be.equal(JSON.stringify(expected));
   });
 });
