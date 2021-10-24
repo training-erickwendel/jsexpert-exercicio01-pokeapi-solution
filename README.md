@@ -14,7 +14,7 @@ Deve ser a rota padrão da aplicação ao tentar acessar qualquer rota inexisten
 
 2. `GET /team`
 
-Deve retornar um array com 3 pokemóns aleatórios, contendo seus respectivos `name` e `moves`, mostrando apenas os 3 primeiros `moves` presentes na API.
+Deve retornar um array com 3 pokemóns aleatórios, contendo seus respectivos `name` e `moves`, (mostrando apenas um array de strings com os 3 primeiros `moves` presentes na API. ex.: `["mega-punch","fire-punch","thunder-punch"]`).
 
 ### Testes
 
@@ -59,11 +59,8 @@ project
 │   │   │   ...
 │   │  
 │   └───unit
-│   │   │   teamRepository.test.js
-│   │   │   teamService.test.js
-│   │  
-│   └───useCases
-│       │   story.md 
+│       │   teamRepository.test.js
+│       │   teamService.test.js
 │         
 └───coverage
 │   │   ...
