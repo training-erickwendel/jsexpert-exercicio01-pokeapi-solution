@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -95,27 +95,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -127,28 +127,28 @@
 const TeamService = require('./service/teamService');
 &nbsp;
 const routes = {
-  '/team:get': <span class="fstat-no" title="function not covered" >as</span>ync (request, response) =&gt; {
-    const teamService = <span class="cstat-no" title="statement not covered" >new TeamService();</span>
-    const team = <span class="cstat-no" title="statement not covered" >await teamService.getTeam();</span>
+  '/team:get': async (request, response) =&gt; {
+    const teamService = new TeamService();
+    const team = await teamService.getTeam();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    response.write(JSON.stringify(team));</span>
+    response.write(JSON.stringify(team));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return response.end();</span>
+    return response.end();
   },
-  default: <span class="fstat-no" title="function not covered" >(r</span>equest, response) =&gt; {
-<span class="cstat-no" title="statement not covered" >    response.write(JSON.stringify({ success: true }));</span>
-<span class="cstat-no" title="statement not covered" >    return response.end();</span>
+  default: (request, response) =&gt; {
+    response.write(JSON.stringify({ success: true }));
+    return response.end();
   },
 };
 &nbsp;
-const handler = <span class="fstat-no" title="function not covered" >fu</span>nction (request, response) {
-  const { url, method } = <span class="cstat-no" title="statement not covered" >request;</span>
-  const routeKey = <span class="cstat-no" title="statement not covered" >`${url}:${method.toLowerCase()}`;</span>
-  const chosen = <span class="cstat-no" title="statement not covered" >routes[routeKey] || routes.default;</span>
-<span class="cstat-no" title="statement not covered" >  response.writeHead(200, {</span>
+const handler = function (request, response) {
+  const { url, method } = request;
+  const routeKey = `${url}:${method.toLowerCase()}`;
+  const chosen = routes[routeKey] || routes.default;
+  response.writeHead(200, {
     'Content-Type': 'application/json',
   });
-<span class="cstat-no" title="statement not covered" >  return chosen(request, response);</span>
+  return chosen(request, response);
 };
 &nbsp;
 const app = http
@@ -163,7 +163,7 @@ module.exports = app;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Oct 24 2021 05:37:46 GMT-0300 (Brasilia Standard Time)
+                at Sun Oct 24 2021 06:02:18 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
