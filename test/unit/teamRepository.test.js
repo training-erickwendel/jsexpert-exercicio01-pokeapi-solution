@@ -2,25 +2,18 @@ const TeamRepository = require('../../src/repository/teamRepository');
 
 const { describe, it, before } = require('mocha');
 const { expect } = require('chai');
-const sinon = require('sinon');
 
-const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
-
-const mocks = {
-  pokemons: require('./../mocks/valid-pokemons.json'),
-};
+const {
+  teamRepositoryMock,
+  BASE_URL,
+  mocks,
+} = require('../mocks/teamRepository.mock');
 
 describe('TeamRepository Suite Tests', () => {
   let teamRepository = {};
 
   before(() => {
-    const repository = new TeamRepository();
-
-    const stub = sinon.stub(repository, repository.makeRequest.name);
-
-    stub.withArgs(BASE_URL).resolves(mocks.pokemons);
-
-    teamRepository = repository;
+    teamRepository = teamRepositoryMock;
   });
 
   it('should call the specified url when makeRequest is called', async () => {

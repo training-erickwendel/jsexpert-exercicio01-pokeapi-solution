@@ -3,13 +3,17 @@ const { describe, it, before } = require('mocha');
 const { expect } = require('chai');
 const sinon = require('sinon');
 
+const { teamRepositoryMock } = require('../mocks/teamRepository.mock');
+
 const TeamService = require('../../src/service/teamService');
 
 describe('TeamService Suite Tests', () => {
   let teamService = {};
+  let teamRepository = {};
 
   before(() => {
-    teamService = new TeamService();
+    teamRepository = teamRepositoryMock;
+    teamService = new TeamService({ teamRepository });
   });
 
   beforeEach(() => {
@@ -46,16 +50,15 @@ describe('TeamService Suite Tests', () => {
   });
 
   it('should return a full team with 3 random pokemons, each one with 3 moves', async () => {
-    const expected = [];
+    // const expected = [];
+    const pokemons = await teamRepository.listPokemons();
+
+    const teamRawMocked = [pokemons[5], pokemons[8], pokemons[10]];
 
     sandbox
       .stub(teamService, teamService.getMultipleRandomItemsFromArray.name)
       .onFirstCall()
-      .returns([
-        { name: 'weedle', url: 'https://pokeapi.co/api/v2/pokemon/13/' },
-        { name: 'wartortle', url: 'https://pokeapi.co/api/v2/pokemon/8/' },
-        { name: 'raticate', url: 'https://pokeapi.co/api/v2/pokemon/20/' },
-      ]);
+      .returns(teamRawMocked);
 
     const team = await teamService.getTeam();
 
