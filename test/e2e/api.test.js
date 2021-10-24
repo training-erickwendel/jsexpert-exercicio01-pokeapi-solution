@@ -5,17 +5,17 @@ const api = require('../../src/api');
 
 describe.skip('API Suite test', () => {
   describe('/team', () => {
-    it('team page requests should return HTTP Status 200', async () => {
+    it('should return HTTP status 200 when /team is called', async () => {
       const response = await request(api).get('/team');
       expect(response.statusCode).to.be.equal(200);
     });
 
-    it('each team should have exactly 3 pokemons', async () => {
+    it('should return exactly 3 pokemons in the team', async () => {
       const response = await request(api).get('/team').expect(200);
       expect(response.body.length).to.be.equal(3);
     });
 
-    it('each pokemon inside a team should have exactly 3 moves', async () => {
+    it('should return 3 moves for each pokemon in the team', async () => {
       const response = await request(api).get('/team').expect(200);
       const team = response.body;
 
@@ -26,7 +26,7 @@ describe.skip('API Suite test', () => {
   });
 
   describe('/', () => {
-    it('should redirect to / if tying call an inexisting route', async () => {
+    it('should redirect to / if trying call an inexisting route', async () => {
       const response = await request(api).get('/hi').expect(200);
       const expected = JSON.stringify({ success: true });
 
