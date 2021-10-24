@@ -3,7 +3,7 @@ const request = require('supertest');
 const { expect } = require('chai');
 const api = require('../../src/api');
 
-describe.skip('API Suite test', () => {
+describe('API Suite test', () => {
   describe('/team', () => {
     it('should return HTTP status 200 when /team is called', async () => {
       const response = await request(api).get('/team');
