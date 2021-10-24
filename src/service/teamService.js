@@ -29,13 +29,6 @@ class TeamService {
       })
     );
 
-    // FIXME: unmock
-    const team = [
-      { name: 'x', moves: ['a', 'b', 'c'] },
-      { name: 'y', moves: ['a', 'b', 'c'] },
-      { name: 'z', moves: ['a', 'b', 'c'] },
-    ];
-
     return team;
   }
 }
