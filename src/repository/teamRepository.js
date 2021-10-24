@@ -24,6 +24,17 @@ class TeamRepository {
     const data = await this.makeRequest(`${API_BASE_URL}/pokemon`);
     return data.results || [];
   }
+
+  async findPokemon(pokemonUrl) {
+    const pokemonRaw = await this.makeRequest(pokemonUrl);
+
+    const pokemon = {
+      name: pokemonRaw.name,
+      moves: pokemonRaw.moves.map(move => move.move.name),
+    };
+
+    return pokemon;
+  }
 }
 
 module.exports = TeamRepository;

@@ -20,7 +20,14 @@ class TeamService {
     const pokemons = await this.teamRepository.listPokemons();
     const teamRaw = this.getMultipleRandomItemsFromArray(pokemons, teamSize);
 
-    console.log({ teamRaw });
+    const team = await Promise.all(
+      teamRaw.map(async pokemonRaw => {
+        const { url } = pokemonRaw;
+        const pokemon = await this.teamRepository.findPokemon(url);
+
+        console.log({ pokemon });
+      })
+    );
 
     // FIXME: unmock
     const team = [
