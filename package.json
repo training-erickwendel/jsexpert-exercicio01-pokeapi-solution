@@ -1,0 +1,22 @@
+{
+  "name": "desafio01-pokeapi",
+  "version": "1.0.0",
+  "description": "An API that retrieves you a random pokemon starter team",
+  "main": "src/api.js",
+  "scripts": {
+    "start": "node src/api.js"
+  },
+  "keywords": [
+    "Tests",
+    "Mocha",
+    "Chai",
+    "Pokemon",
+    "Code",
+    "Coverage",
+    "NodeJS",
+    "e2e",
+    "unit"
+  ],
+  "author": "Wellington S. Almeida (WellsSA)",
+  "license": "MIT"
+}
