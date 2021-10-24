@@ -46,6 +46,9 @@ describe('TeamService Suite Tests', () => {
   });
 
   it('should return a full team with 3 random pokemons, each one with 3 moves', async () => {
+    const expected = [];
+    const team = await teamService.getTeam();
+
     expect(true).to.be.true;
   });
 });
