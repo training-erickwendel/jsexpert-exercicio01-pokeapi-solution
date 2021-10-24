@@ -11,7 +11,10 @@ describe('TeamService Suite Tests', () => {
   });
 
   it('should return a random item from an array', () => {
-    expect(true).to.be.true;
+    const list = [0, 1, 2, 3, 4];
+    const item = teamService.getRandomItemFromArray(list);
+
+    expect(list.includes(item)).to.be.true;
   });
 
   it('should return multiple random items from an array', () => {
