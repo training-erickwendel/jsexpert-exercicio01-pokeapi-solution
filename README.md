@@ -28,6 +28,7 @@ Deve retornar um array com 3 pokemóns aleatórios, contendo seus respectivos `n
 ### Extras
 
 * [ ] TDD e BDD, será que rola? Acho que vale a tentativa!
+* [ ] Que tal consumir a API sem usar libs externas? o módulo `https` do node pode ser bem interessante!
 
 ## Dicas
 
@@ -72,6 +73,19 @@ URLs Úteis ao desafio:
 - https://pokeapi.co/api/v2/pokemon
 - https://pokeapi.co/api/v2/pokemon/7
 
+### Checklist features
+
+- Web API
+  * [ ] Deve ter uma rota raiz usada como _fallback_.
+  * [ ] Deve ter uma rota de `/team`, onde: 
+    * [ ] Deve consumir a PokeAPI e selecionar 3 pokemóns aleatórios
+    * [ ] Deve consumir a PokeAPI para obter mais informações sobre os pokemóns escolhidos
+    * [ ] Deve retornar um objeto JSON conetendo um array com 3 pokemóns, cada um com seus respectivos `name (String)` e `moves (String[])`
+
+- Testes
+  * [ ] Deve ter cobertura de testes end-2-end e unitários
+  * [ ] 100% de code coverage
+
 ## Submissão
 
 1. Inicialize um repósitório git com um arquivo README.md contendo seu nome, quais tópicos do checklist foram implementados e, caso queira, um breve resumo de cada tópico.
@@ -80,4 +94,8 @@ URLs Úteis ao desafio:
 
 3. Coloque as instruções de como configurar e executar seu projeto e os testes no README.md (não se esqueça do coverage com o `nyc`).
 
-4. Envie o link no canal `#desafios-javascript-expert` da nossa comunidade no discord.
+4. Envie o link no canal `#desafios-jsexpert` da nossa comunidade no discord.
+
+## Até quando?
+
+Se você está pegando esse desafio na estréia, corre lá e envia pra gente até *Quarta-feira, 10 de novembro de 2021 (10/11/2021)*!
