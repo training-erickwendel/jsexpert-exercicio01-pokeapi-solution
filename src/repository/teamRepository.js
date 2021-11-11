@@ -22,7 +22,7 @@ class TeamRepository {
 
   async listPokemons() {
     const data = await this.makeRequest(`${API_BASE_URL}/pokemon`);
-    return data.results || [];
+    return data.results;
   }
 
   async findPokemon(pokemonUrl) {
