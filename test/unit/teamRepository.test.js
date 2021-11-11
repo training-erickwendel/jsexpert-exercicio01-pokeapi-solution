@@ -1,5 +1,3 @@
-const TeamRepository = require('../../src/repository/teamRepository');
-
 const { describe, it, before } = require('mocha');
 const { expect } = require('chai');
 
