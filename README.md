@@ -94,7 +94,7 @@ URLs Úteis ao desafio:
 
 1. `package.json` - Troque a versão do node para a sua versão atual (`node -v`) e coloque seu nome no `Author`.
 
-2. `npm i` - Escolha as bibliotecas de testes e instale elas (como as aulas do modulo 1 são com o CommonJS e as bibliotecas `chai`, `mocha`, `sinon` e `nyc`, as configuralções de coverage já foi feita pensando nelas).
+2. `npm i` - Escolha as bibliotecas de testes e instale elas (como as aulas do modulo 1 são com o CommonJS e as bibliotecas `chai`, `mocha`, `sinon` e `nyc`, as configuração de coverage já foi feita pensando nelas).
 
 3. ### Bora codar
 
